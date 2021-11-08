@@ -283,9 +283,9 @@ def generate_launch_description():
         emulate_tty=True,
     )
 
-    viz_active_node = Node(
-        package="viz_active",
-        executable="viz_active",
+    viz_dynamic_node = Node(
+        package="viz_dynamic",
+        executable="viz_dynamic",
         namespace="",
         output="screen",
         parameters=[parameters],
@@ -333,7 +333,7 @@ def generate_launch_description():
         rviz_node,
         viz_static_node,
         viz_interactive_node,
-        viz_active_node,
+        viz_dynamic_node,
         control_gui_node,
         query_gui_node
     ]
