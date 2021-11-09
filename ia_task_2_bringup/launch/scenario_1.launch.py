@@ -16,7 +16,7 @@ from launch_ros.actions import Node
 def generate_launch_description():
     scenario = "scenario_1"
     tf_scene_dir = FindPackageShare("ia_task_2_scene").find("ia_task_2_scene")
-    ur_bringup_dir = FindPackageShare("ur_bringup").find("ur_bringup")
+    bringup_dir = FindPackageShare("ia_task_2_bringup").find("ia_task_2_bringup")
     ur_setup_dir = FindPackageShare("ur_setup").find("ur_setup")
     ursg_setup_dir = FindPackageShare("ur_script_generator").find("ur_script_generator")
 
@@ -186,7 +186,7 @@ def generate_launch_description():
     )
     robot_description = {"robot_description": robot_description_content}
 
-    rviz_config_file = os.path.join(ur_bringup_dir, "config", "bringup.rviz")
+    rviz_config_file = os.path.join(bringup_dir, "config", "scenario_1.rviz")
 
     driver_parameters = {
         "ur_address": robot_parameters["ip_address"],
@@ -323,6 +323,16 @@ def generate_launch_description():
         emulate_tty=True,
     )
 
+    marker_gui_node = Node(
+        package="gui_tools",
+        executable="marker_gui",
+        namespace="",
+        output="screen",
+        arguments=["-d", rviz_config_file],
+        remappings=[("/tf", "tf"), ("/tf_static", "tf_static")],
+        emulate_tty=True,
+    )
+
     nodes_to_start = [
         ur_robot_state_publisher_node,
         ur_script_generator_node,
@@ -335,7 +345,8 @@ def generate_launch_description():
         viz_interactive_node,
         viz_dynamic_node,
         control_gui_node,
-        query_gui_node
+        query_gui_node,
+        marker_gui_node
     ]
 
     return LaunchDescription(declared_arguments + nodes_to_start)
