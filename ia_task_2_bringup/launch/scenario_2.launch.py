@@ -14,14 +14,14 @@ from launch_ros.actions import Node
 
 
 def generate_launch_description():
-    scenario = "scenario_1"
+    scenario = "scenario_2"
     tf_scene_dir = FindPackageShare("ia_task_2_scene").find("ia_task_2_scene")
     bringup_dir = FindPackageShare("ia_task_2_bringup").find("ia_task_2_bringup")
     ur_setup_dir = FindPackageShare("ur_setup").find("ur_setup")
     ursg_setup_dir = FindPackageShare("ur_script_generator").find("ur_script_generator")
 
     robot_parameters_path = os.path.join(
-        ur_setup_dir, "robots", "ursim10e", "general.json"
+        ur_setup_dir, "robots", "ursim3e", "general.json"
     )
 
     parameters = {
@@ -186,7 +186,7 @@ def generate_launch_description():
     )
     robot_description = {"robot_description": robot_description_content}
 
-    rviz_config_file = os.path.join(bringup_dir, "config", "scenario_1.rviz")
+    rviz_config_file = os.path.join(bringup_dir, "config", "scenario_2.rviz")
 
     driver_parameters = {
         "ur_address": robot_parameters["ip_address"],

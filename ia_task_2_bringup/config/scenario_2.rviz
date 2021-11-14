@@ -6,6 +6,8 @@ Panels:
       Expanded:
         - /Global Options1
         - /Status1
+        - /TF1
+        - /TF1/Tree1
       Splitter Ratio: 0.5
     Tree Height: 728
   - Class: rviz_common/Selection
@@ -52,59 +54,192 @@ Visualization Manager:
       Frame Timeout: 15
       Frames:
         All Enabled: true
-        above_toolchange_one:
-          Value: true
-        above_toolchange_two:
+        base:
           Value: true
         base_link:
           Value: true
-        dummy_frame:
+        base_link_inertia:
+          Value: true
+        flange:
           Value: true
         floor:
           Value: true
-        gantry:
+        forearm_link:
           Value: true
-        gantry_plate:
+        piab_tool:
           Value: true
-        robot_facade_full:
+        shoulder_link:
           Value: true
-        toolchange_one:
+        suction_cup_1:
           Value: true
-        toolchange_two:
+        suction_cup_2:
+          Value: true
+        tool0:
+          Value: true
+        upper_arm_link:
+          Value: true
+        vention_stand:
           Value: true
         world:
           Value: true
-      Marker Scale: 1
+        wrist_1_link:
+          Value: true
+        wrist_2_link:
+          Value: true
+        wrist_3_link:
+          Value: true
+      Marker Scale: 0.30000001192092896
       Name: TF
-      Show Arrows: true
+      Show Arrows: false
       Show Axes: true
       Show Names: false
       Tree:
+        base_link:
+          base:
+            {}
+          base_link_inertia:
+            shoulder_link:
+              upper_arm_link:
+                forearm_link:
+                  wrist_1_link:
+                    wrist_2_link:
+                      wrist_3_link:
+                        flange:
+                          tool0:
+                            piab_tool:
+                              suction_cup_1:
+                                {}
+                              suction_cup_2:
+                                {}
         world:
-          dummy_frame:
-            {}
           floor:
-            {}
-          gantry:
-            gantry_plate:
-              above_toolchange_one:
-                {}
-              above_toolchange_two:
-                {}
-              base_link:
-                {}
-              toolchange_one:
-                {}
-              toolchange_two:
-                {}
-          robot_facade_full:
-            {}
+            vention_stand:
+              {}
       Update Interval: 0
+      Value: true
+    - Class: rviz_default_plugins/MarkerArray
+      Enabled: true
+      Name: MarkerArray
+      Namespaces:
+        "": true
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /static_markers
+      Value: true
+    - Class: rviz_default_plugins/InteractiveMarkers
+      Enable Transparency: true
+      Enabled: true
+      Interactive Markers Namespace: /interactive_markers
+      Name: InteractiveMarkers
+      Show Axes: false
+      Show Descriptions: true
+      Show Visual Aids: false
+      Value: true
+    - Class: rviz_default_plugins/MarkerArray
+      Enabled: true
+      Name: MarkerArray
+      Namespaces:
+        {}
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /active_markers
+      Value: true
+    - Alpha: 1
+      Class: rviz_default_plugins/RobotModel
+      Collision Enabled: false
+      Description File: ""
+      Description Source: Topic
+      Description Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /robot_description
+      Enabled: true
+      Links:
+        All Links Enabled: true
+        Expand Joint Details: false
+        Expand Link Details: false
+        Expand Tree: false
+        Link Tree Style: Links in Alphabetic Order
+        base:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        base_link_inertia:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        flange:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        forearm_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        shoulder_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        tool0:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        upper_arm_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        wrist_1_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        wrist_2_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        wrist_3_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+      Name: RobotModel
+      TF Prefix: ""
+      Update Interval: 0
+      Value: true
+      Visual Enabled: true
+    - Class: rviz_default_plugins/MarkerArray
+      Enabled: true
+      Name: MarkerArray
+      Namespaces:
+        {}
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /dynamic_markers
       Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
-    Fixed Frame: world
+    Fixed Frame: floor
     Frame Rate: 30
   Name: root
   Tools:
@@ -147,25 +282,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz_default_plugins/Orbit
-      Distance: 5.277319431304932
+      Distance: 2.762995481491089
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: -1.5911049842834473
-        Y: -1.0035814046859741
-        Z: 1.2574316263198853
+        X: -0.01259282324463129
+        Y: -0.023104622960090637
+        Z: 0.7345721125602722
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.5203982591629028
+      Pitch: 0.5603987574577332
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 1.7403969764709473
+      Yaw: 4.073445796966553
     Saved: ~
 Window Geometry:
   Displays:
