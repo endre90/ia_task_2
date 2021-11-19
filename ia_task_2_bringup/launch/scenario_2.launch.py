@@ -27,7 +27,7 @@ def generate_launch_description():
     parameters = {
         "templates_path": os.path.join(ursg_setup_dir),
         "scenario_path": os.path.join(tf_scene_dir, "scenarios", scenario), 
-        "meshes_path": "/home/endre/Desktop/ia_ros_meshes"
+        "meshes_path": "/ros/ia_ros_meshes"
     }
 
     with open(robot_parameters_path) as jsonfile:
