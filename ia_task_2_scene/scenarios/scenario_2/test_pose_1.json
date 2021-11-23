@@ -1,0 +1,19 @@
+{
+    "show": true,
+    "active": false,
+    "child_frame": "test_pose_1",     
+    "parent_frame": "vention_stand",
+    "transform": {
+        "translation": {
+            "x": -0.37363,
+            "y": 0.0864,
+            "z": 0.1261
+        },
+        "rotation": {
+            "x": -0.0276,
+            "y": -0.0038,
+            "z": -0.7204,
+            "w": 0.69289
+        }
+    }
+}
